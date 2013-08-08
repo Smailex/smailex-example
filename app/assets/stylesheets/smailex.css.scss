@@ -12,6 +12,7 @@ h1{
 	margin: 5px 0 10px;
 	float: left;
 }
+
 .status{
 	display: inline-block;
 	margin: 18px;
@@ -46,9 +47,18 @@ input{
 	padding: 5px;
 }
 input[type="radio"]{
-	margin-top: 8px; 
+	margin: 8px 5px 0 25px;margin-top: 8px; 
 }
-.control_string label{
+
+input[disabled]{
+	background: rgba(196,196,196,.4);
+}
+
+label.no-float{
+	float: none;
+}
+
+.float-label label{
 	float: left;
 	width: 155px;
 	text-align: right;
