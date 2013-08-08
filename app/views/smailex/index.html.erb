@@ -4,15 +4,16 @@
 
 
 	<% if @client %>
-		<span class="status">Smailex client is ready to use</span>
+		<span class="status okay">Smailex client is ready to use</span>
 	<% else %>
-		<span class="status">Smailex client is NOT ready... Something went wrong</span>
+		<span class="status err">Smailex client is NOT ready... Something went wrong</span>
 	<% end%>
 
 	<div style="clear:both"></div>
 
 	<form>
 		<div class="one-half">
+			<h3>Sender</h3>
 			<div class="control_string">
 				<div class="form_string">
 					<label for="sender_zip">Sender ZIP: </label> <input type="text" id="sender_zip" class="long" placeholder="Sender ZIP"/>
@@ -36,6 +37,7 @@
 		</div>
 
 		<div class="one-half">
+			<h3>Receiver</h3>
 			<div class="control_string">
 				<div class="form_string">
 					<label for="receiver_zip">Receiver ZIP: </label> <input type="text" id="receiver_zip" class="long" placeholder="Receiver ZIP"/>
@@ -61,6 +63,7 @@
 		<div style="clear:both"></div>
 
 		<div class="control_string">
+			<h3>Package</h3>
 			<label>Packaging type:</label> 
 				<input type="radio" class="radio-btn" name="packaging" value="envelope" id="envelope"/>Envelope  
 				<input type="radio" class="radio-btn" name="packaging" value="box" id="box"/>Box <br/>
@@ -77,16 +80,33 @@
 					× <input type="text"  id="height" class="short box-param" placeholder="Height"/>
 			</div>
 		</div>
+		<div class="control_string">
+			<h3>Shipment</h3>
+			<label>Shipment ID:</label>
+			<input type="text" id="shipment_id"  class="longest" placeholder="Shipment ID"/>
+		</div>
+		<div class="control_string">
+			<h3>Service</h3>
+				<div class="form_string">
+					<label for="carrier">Carrier: </label> <input type="text" id="carrier" class="longest" placeholder="Carrier"/>
+				</div>
+				<div class="form_string">
+					<label for="code">Code:</label> <input type="text" id="code" class="longest" placeholder="Code"/>
+				</div>
+
+		</div>
 
 		
 		<div style="clear:both"></div>
 	</form>
-	<button id="ceate_shipment" class="action">Create shipment</button>
-	<button id="get_rates" class="action">Get Rates</button>
-	<button id="update_shipment" class="action">Update shipment</button>
-	<button id="create_order" class="action">Create order</button>
-	<button id="purchase" class="action">Purchase</button>
-	<div style="clear:both"></div>
+	<div class="center">
+		<button id="ceate_shipment" class="action">Create shipment</button>
+		<button id="get_rates" class="action">Get Rates</button>
+		<button id="update_shipment" class="action">Update shipment</button>
+		<button id="create_order" class="action">Create order</button>
+		<button id="purchase" class="action">Purchase</button>
+		<div style="clear:both"></div>
+	</div>
 	<h2 >Response:</h2>
 	<pre><code id="response" class="json"></code></pre>
 

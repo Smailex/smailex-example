@@ -16,6 +16,13 @@ h1{
 	display: inline-block;
 	margin: 18px;
 }
+.okay{
+	color: green;
+}
+
+.err{
+	color: red;
+}
 
 .container{
 	width: 960px;
@@ -54,6 +61,9 @@ input[type="radio"]{
 .short{
 	width: 130px;
 }
+.longest{
+	width: 750px;
+}
 .floated{
 	float: left;
 	margin: 10px 0;
@@ -61,10 +71,10 @@ input[type="radio"]{
 button.action{
 	margin: 20px 10px;
 	display: inline-block;
-	/*width: 80px;*/
 	padding: 10px 20px;
-	/*font-size: 18px;*/
-	float: left;
+}
+.center{
+	text-align: center;
 }
 #response{
 	margin-bottom: 30px;
