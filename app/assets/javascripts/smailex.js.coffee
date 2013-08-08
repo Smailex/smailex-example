@@ -10,7 +10,7 @@ $(document).ready ->
 		else
 			$('.box-param').prop 'disabled', false
 
-	$('#ceate_shipment').click ->
+	$('#create_shipment').click ->
 		package_type = $('input[name=packaging]:checked').val()
 
 		$.post '/smailex/create_shipment',
