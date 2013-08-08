@@ -1,0 +1,93 @@
+<div class="container">
+
+	<h1>SmailexClient example app</h1>
+
+
+	<% if @client %>
+		<span class="status">Smailex client is ready to use</span>
+	<% else %>
+		<span class="status">Smailex client is NOT ready... Something went wrong</span>
+	<% end%>
+
+	<div style="clear:both"></div>
+
+	<form>
+		<div class="one-half">
+			<div class="control_string">
+				<div class="form_string">
+					<label for="sender_zip">Sender ZIP: </label> <input type="text" id="sender_zip" class="long" placeholder="Sender ZIP"/>
+				</div>
+				<div class="form_string">
+					<label for="sender_country">Sender county: </label> <input type="text" id="sender_country" class="long" placeholder="Sender Country"/>
+				</div>
+				<div class="form_string">
+					<label for="sender_state">Sender state: </label> <input type="text" id="sender_state" class="long" placeholder="Sender State"/>
+				</div>
+				<div class="form_string">
+					<label for="sender_city">Sender city: </label> <input type="text" id="sender_city" class="long" placeholder="Sender City"/>
+				</div>
+				<div class="form_string">
+					<label for="sender_line1">Sender address line 1: </label> <input type="text" id="sender_line1" class="long" placeholder="Sender Line 1"/>
+				</div>				
+				<div class="form_string">
+					<label for="sender_line2">Sender address line 2: </label> <input type="text" id="sender_line2" class="long" placeholder="Sender Line 2"/>
+				</div>				
+			</div>
+		</div>
+
+		<div class="one-half">
+			<div class="control_string">
+				<div class="form_string">
+					<label for="receiver_zip">Receiver ZIP: </label> <input type="text" id="receiver_zip" class="long" placeholder="Receiver ZIP"/>
+				</div>
+				<div class="form_string">
+					<label for="receiver_country">Receiver county: </label> <input type="text" id="receiver_country" class="long" placeholder="Receiver Country"/>
+				</div>
+				<div class="form_string">
+					<label for="receiver_state">Receiver state: </label> <input type="text" id="receiver_state" class="long" placeholder="Receiver State"/>
+				</div>
+				<div class="form_string">
+					<label for="receiver_city">Receiver city: </label> <input type="text" id="receiver_city" class="long" placeholder="Receiver City"/>
+				</div>
+				<div class="form_string">
+					<label for="receiver_line1">Receiver address line 1: </label> <input type="text" id="receiver_line1" class="long" placeholder="Receiver Line 1"/>
+				</div>				
+				<div class="form_string">
+					<label for="receiver_line2">Receiver address line 2: </label> <input type="text" id="receiver_line2" class="long" placeholder="Receiver Line 2"/>
+				</div>				
+			</div>
+		</div>
+
+		<div style="clear:both"></div>
+
+		<div class="control_string">
+			<label>Packaging type:</label> 
+				<input type="radio" class="radio-btn" name="packaging" value="envelope" id="envelope"/>Envelope  
+				<input type="radio" class="radio-btn" name="packaging" value="box" id="box"/>Box <br/>
+
+			<div class="floated">
+				<label for="_weight">Weight: </label>
+					<input type="text"  id="weight" class="short box-param" placeholder="Weight"/>
+			</div>
+					
+			<div class="floated">
+				<label for="dim">Dimensions:</label> 
+					<input type="text" id="length" class="short box-param" placeholder="Length"/>
+					× <input type="text"  id="width" class="short box-param" placeholder="Width"/>
+					× <input type="text"  id="height" class="short box-param" placeholder="Height"/>
+			</div>
+		</div>
+
+		
+		<div style="clear:both"></div>
+	</form>
+	<button id="ceate_shipment" class="action">Create shipment</button>
+	<button id="get_rates" class="action">Get Rates</button>
+	<button id="update_shipment" class="action">Update shipment</button>
+	<button id="create_order" class="action">Create order</button>
+	<button id="purchase" class="action">Purchase</button>
+	<div style="clear:both"></div>
+	<h2 >Response:</h2>
+	<pre><code id="response" class="json"></code></pre>
+
+</div>

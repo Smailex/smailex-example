@@ -1,0 +1,74 @@
+// Place all the styles related to the smailex controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+	margin: 0;
+}
+html, body, input, textarea{
+	font-family: Helvetica, Arial, sans-serif;
+	color:#333;
+}
+h1{
+	margin: 5px 0 10px;
+	float: left;
+}
+.status{
+	display: inline-block;
+	margin: 18px;
+}
+
+.container{
+	width: 960px;
+	margin: 0 auto;
+}
+.one-half{
+	width: 49%;
+	float:left;
+}
+	
+.control_string{
+	padding:  5px 0;
+}
+.form_string{
+	margin: 5px 0;
+}
+input{
+	font-size: 14px;
+	border: solid #ccc 1px;
+	border-radius: 3px;
+	padding: 5px;
+}
+input[type="radio"]{
+	margin-top: 8px; 
+}
+.control_string label{
+	float: left;
+	width: 155px;
+	text-align: right;
+	padding: 6px 5px 0 0;
+	font-size: 14px;
+}
+.long{
+	width: 60%;
+}
+.short{
+	width: 130px;
+}
+.floated{
+	float: left;
+	margin: 10px 0;
+}
+button.action{
+	margin: 20px 10px;
+	display: inline-block;
+	/*width: 80px;*/
+	padding: 10px 20px;
+	/*font-size: 18px;*/
+	float: left;
+}
+#response{
+	margin-bottom: 30px;
+	width: 100%;
+	font-family: monospace;
+	margin-top: 10px;
+}
