@@ -6,9 +6,7 @@ class SmailexController < ApplicationController
   def create_shipment
   	client = SmailexClient.new(SmailexClientID, SmailexClientSecret, SmailexStageAPIUrl)
   	
-  	p "type: #{params[:package_type]}"
-
-  	shipment_params = {
+ 	shipment_params = {
   		:packages=>[
 	  			{
 	  			:dimensions=>{
@@ -32,12 +30,33 @@ class SmailexController < ApplicationController
   		}
   	}
 
-  	#Ceate the shipment object
+  	#Ceate the shipment object and send request to smailex
   	shipment = client.create_shipment(params[:package_type], shipment_params)
 
   	respond_to do |format|
-		format.js { 	render :partial => 'shipment',  :locals=>{:shipment => shipment}	}
+		format.js { 	render :partial => 'response',  :locals=>{:response => shipment}	}
 	end
+  end
+
+  def get_rates
+    client = SmailexClient.new(SmailexClientID, SmailexClientSecret, SmailexStageAPIUrl)
+    # Get shipment rates by shipment_id from smailex
+    rates = client.get_rates(params[:shipment_id])
+
+    respond_to do |format|
+      format.js {   render :partial => 'response',  :locals=>{:response => rates}  }
+    end
+    
+  end
+
+  def update_shipment
+    client = SmailexClient.new(SmailexClientID, SmailexClientSecret, SmailexStageAPIUrl)
+    update_shipment = "123"
+    p "PARAMS: #{params}"
+    respond_to do |format|
+      format.js {   render :partial => 'response',  :locals=>{:response => update_shipment}  }
+    end
+    
   end
 
 end

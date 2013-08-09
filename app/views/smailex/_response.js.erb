@@ -1,0 +1,3 @@
+var r = "<%= j(JSON.pretty_generate(response)).html_safe %>"
+$("#response").html(r)
+$("#response").each(function(i, e) {hljs.highlightBlock(e)});

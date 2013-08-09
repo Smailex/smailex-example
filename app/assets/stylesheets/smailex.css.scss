@@ -81,7 +81,27 @@ label.no-float{
 button.action{
 	margin: 20px 10px;
 	display: inline-block;
-	padding: 10px 20px;
+	padding: 20px 70px;
+	color: #ffffff;
+	background-color: #5cb85c;
+	border-color: #4cae4c;
+	display: inline-block;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 1.428571429;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	-webkit-user-select: none;
+}
+button.action:hover,button.action:active{
+	color: #ffffff;
+	background-color: #47a447;
+	border-color: #398439;
 }
 .center{
 	text-align: center;
@@ -91,4 +111,8 @@ button.action{
 	width: 100%;
 	font-family: monospace;
 	margin-top: 10px;
+}
+.loading{
+	width: 100%;
+	text-align: center;
 }
