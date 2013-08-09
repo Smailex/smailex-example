@@ -71,7 +71,6 @@ $(document).ready ->
 
 			when 'get_rates'
 				$.post '/smailex/get_rates',
-					dataType: 'script'
 					shipment_id: $('#shipment_id').val()
 
 				(data, textStatus, jqXHR) ->
@@ -82,7 +81,6 @@ $(document).ready ->
 						return data
 			when 'update_shipment'
 				$.post '/smailex/update_shipment',
-					dataType: 'script'
 					shipment_id: $('#shipment_id').val()
 					sender_state: $('#sender_state').val()
 					sender_city: $('#sender_city').val()

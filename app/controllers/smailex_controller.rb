@@ -51,8 +51,16 @@ class SmailexController < ApplicationController
 
   def update_shipment
     client = SmailexClient.new(SmailexClientID, SmailexClientSecret, SmailexStageAPIUrl)
-    update_shipment = "123"
-    p "PARAMS: #{params}"
+    update_shipment = {:a=>"b"}
+    update_params =Hash.new()
+
+    params.each { |key,value|
+      unless ['controller','action','shipment_id'].include?(key)
+        p "KEY: #{key}, VALUE: #{value}" unless value ==""
+        update_params[key] = value
+      end
+    }
+    p "UPDATE_PARAMS: #{update_params}"
     respond_to do |format|
       format.js {   render :partial => 'response',  :locals=>{:response => update_shipment}  }
     end
