@@ -47,7 +47,7 @@ input{
 	padding: 5px;
 }
 input[type="radio"]{
-	margin: 8px 5px 0 25px;margin-top: 8px; 
+	margin: 8px 5px;
 }
 
 input[disabled]{
@@ -105,6 +105,9 @@ button.action:hover,button.action:active{
 }
 .center{
 	text-align: center;
+}
+.padding{
+	padding-left: 50px;
 }
 #response{
 	margin-bottom: 30px;

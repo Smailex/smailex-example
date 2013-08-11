@@ -5,7 +5,10 @@ SmailexExample::Application.routes.draw do
   post "smailex/update_shipment"
   post "smailex/validate_addresses"
   post "smailex/create_order"
+  post "smailex/get_cards"
+  post "smailex/get_default_card"
   post "smailex/purchase"
+  post "smailex/get_label"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -21,22 +21,34 @@ $(document).ready ->
 	# form fields
 	$('.action_chooser').click ->
 		$('input').prop 'disabled', true
+		$('input').css 'border', 'solid 1px #ccc'
 		act =  $(this).attr 'id'
 		switch act
 			when 'create_shipment'
 				$('.shipment').prop 'disabled', false
 				$('.package_type').prop 'disabled', false
+				$('.shipment-mandatory').css 'border', 'solid 1px #d9534f'
 			when 'get_rates' 
 				$('.rates').prop 'disabled', false
+				$('.rates-mandatory').css 'border', 'solid 1px #d9534f'
 			when 'update_shipment'
 				$('.update').prop 'disabled', false
 				#$('.package_type').prop 'disabled', false
+				$('.update-mandatory').css 'border', 'solid 1px #d9534f'
+				$('.rates-mandatory').css 'border', 'solid 1px #d9534f'
 			when 'validate_addresses' 
 				$('.rates').prop 'disabled', false
+				$('.rates-mandatory').css 'border', 'solid 1px #d9534f'
 			when 'create_order'
 				$('.rates').prop 'disabled', false
-			when 'purchase_order'
 				$('.order').prop 'disabled', false
+				$('.rates-mandatory').css 'border', 'solid 1px #d9534f'
+			when 'purchase_order'
+				$('.purchase').prop 'disabled', false
+				$('.purchase-mandatory').css 'border', 'solid 1px #d9534f'
+			when 'get_label'
+				$('.purchase').prop 'disabled', false
+				$('.purchase-mandatory').css 'border', 'solid 1px #d9534f'
 
 		$('.action_chooser').prop 'disabled', false
 
@@ -129,6 +141,7 @@ $(document).ready ->
 			when 'create_order'
 				$.post '/smailex/create_order',
 					shipment_id: $('#shipment_id').val()
+					payment_card_id:  $('#payment_card_id').val()
 
 					(data, textStatus, jqXHR) ->
 						#make_response()
@@ -136,6 +149,25 @@ $(document).ready ->
 							alert 'Ajax error'
 						else
 							return data
+			when 'get_cards'
+				$.post '/smailex/get_cards',
+
+					(data, textStatus, jqXHR) ->
+						#make_response()
+						if data.status == "error"
+							alert 'Ajax error'
+						else
+							return data
+			when 'get_default_card'
+				$.post '/smailex/get_default_card',
+
+					(data, textStatus, jqXHR) ->
+						#make_response()
+						if data.status == "error"
+							alert 'Ajax error'
+						else
+							return data
+
 			when 'purchase_order'
 				$.post '/smailex/purchase',
 					order_id: $('#order_id').val()
@@ -146,6 +178,17 @@ $(document).ready ->
 							alert 'Ajax error'
 						else
 							return data
+			when 'get_label'
+				$.post '/smailex/get_label',
+					order_id: $('#order_id').val()
+
+					(data, textStatus, jqXHR) ->
+						#make_response()
+						if data.status == "error"
+							alert 'Ajax error'
+						else
+							return data
+			
 			else
 				alert "Make a choice!"
 		make_response()

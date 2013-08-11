@@ -17,31 +17,31 @@
 			<h4>Sender</h4>
 			<div class="control_string float-label">
 				<div class="form_string">
-					<label for="sender_name">Sender name: </label> <input type="text" id="sender_name" class="long update"  placeholder="Sender name"/>
+					<label for="sender_name">Sender name: </label> <input type="text" id="sender_name" class="long update update-mandatory"  placeholder="Sender name"/>
 				</div>
 				<div class="form_string">
-					<label for="sender_email">Sender email: </label> <input type="text" id="sender_email" class="long update"  placeholder="Sender email"/>
+					<label for="sender_email">Sender email: </label> <input type="text" id="sender_email" class="long update update-mandatory"  placeholder="Sender email"/>
 				</div>
 				<div class="form_string">
-					<label for="sender_phone">Sender phone: </label> <input type="text" id="sender_phone" class="long update" placeholder="Sender phone"/>
+					<label for="sender_phone">Sender phone: </label> <input type="text" id="sender_phone" class="long update update-mandatory" placeholder="Sender phone"/>
 				</div>
 				<div class="form_string">
-					<label for="sender_company">Sender company: </label> <input type="text" id="sender_company" class="long update"  placeholder="Sender company"/>
+					<label for="sender_company">Sender company: </label> <input type="text" id="sender_company" class="long update "  placeholder="Sender company"/>
 				</div>
 				<div class="form_string">
-					<label for="sender_zip">Sender ZIP: </label> <input type="text" id="sender_zip" class="long shipment"  value="94040" placeholder="Sender ZIP"/>
+					<label for="sender_zip">Sender ZIP: </label> <input type="text" id="sender_zip" class="long shipment  shipment-mandatory"  value="94040" placeholder="Sender ZIP"/>
 				</div>
 				<div class="form_string">
 					<label for="sender_country">Sender county: </label> <input type="text" id="sender_country" class="long " disabled value="US" placeholder="Sender Country"/>
 				</div>
 				<div class="form_string">
-					<label for="sender_state">Sender state: </label> <input type="text" id="sender_state" class="long  update" placeholder="Sender State"/>
+					<label for="sender_state">Sender state: </label> <input type="text" id="sender_state" class="long  update update-mandatory" placeholder="Sender State"/>
 				</div>
 				<div class="form_string">
-					<label for="sender_city">Sender city: </label> <input type="text" id="sender_city" class="long  update" placeholder="Sender City"/>
+					<label for="sender_city">Sender city: </label> <input type="text" id="sender_city" class="long  update update-mandatory" placeholder="Sender City"/>
 				</div>
 				<div class="form_string">
-					<label for="sender_line1">Sender address line 1: </label> <input type="text" id="sender_line1" class="long  update" placeholder="Sender Line 1"/>
+					<label for="sender_line1">Sender address line 1: </label> <input type="text" id="sender_line1" class="long  update update-mandatory" placeholder="Sender Line 1"/>
 				</div>				
 				<div class="form_string">
 					<label for="sender_line2">Sender address line 2: </label> <input type="text" id="sender_line2" class="long  update" placeholder="Sender Line 2"/>
@@ -53,31 +53,31 @@
 			<h4>Receiver</h4>
 			<div class="control_string float-label">
 				<div class="form_string">
-					<label for="receiver_name">Receiver name: </label> <input type="text" id="receiver_name" class="long update " placeholder="Receiver name"/>
+					<label for="receiver_name">Receiver name: </label> <input type="text" id="receiver_name" class="long update update-mandatory" placeholder="Receiver name"/>
 				</div>
 				<div class="form_string">
-					<label for="receiver_email">Receiver email: </label> <input type="text" id="receiver_email" class="long update " placeholder="Receiver email"/>
+					<label for="receiver_email">Receiver email: </label> <input type="text" id="receiver_email" class="long update update-mandatory" placeholder="Receiver email"/>
 				</div>
 				<div class="form_string">
-					<label for="receiver_phone">Receiver phone: </label> <input type="text" id="receiver_phone" class="long update "  placeholder="Receiver phone"/>
+					<label for="receiver_phone">Receiver phone: </label> <input type="text" id="receiver_phone" class="long update update-mandatory"  placeholder="Receiver phone"/>
 				</div>
 				<div class="form_string">
 					<label for="receiver_company">Receiver company: </label> <input type="text" id="receiver_company" class="long update "   placeholder="Receiver company"/>
 				</div>
 				<div class="form_string">
-					<label for="receiver_zip">Receiver ZIP: </label> <input type="text" id="receiver_zip" class="long shipment " value="77060"  placeholder="Receiver ZIP"/>
+					<label for="receiver_zip">Receiver ZIP: </label> <input type="text" id="receiver_zip" class="long shipment shipment-mandatory" value="77060"  placeholder="Receiver ZIP"/>
 				</div>
 				<div class="form_string">
 					<label for="receiver_country">Receiver county: </label> <input type="text" id="receiver_country" class="long " disabled value="US" placeholder="Receiver Country"/>
 				</div>
 				<div class="form_string">
-					<label for="receiver_state">Receiver state: </label> <input type="text" id="receiver_state" class="long  update" placeholder="Receiver State"/>
+					<label for="receiver_state">Receiver state: </label> <input type="text" id="receiver_state" class="long  update update-mandatory" placeholder="Receiver State"/>
 				</div>
 				<div class="form_string">
-					<label for="receiver_city">Receiver city: </label> <input type="text" id="receiver_city" class="long  update" placeholder="Receiver City"/>
+					<label for="receiver_city">Receiver city: </label> <input type="text" id="receiver_city" class="long  update update-mandatory" placeholder="Receiver City"/>
 				</div>
 				<div class="form_string">
-					<label for="receiver_line1">Receiver address line 1: </label> <input type="text" id="receiver_line1" class="long  update" placeholder="Receiver Line 1"/>
+					<label for="receiver_line1">Receiver address line 1: </label> <input type="text" id="receiver_line1" class="long  update update-mandatory" placeholder="Receiver Line 1"/>
 				</div>				
 				<div class="form_string">
 					<label for="receiver_line2">Receiver address line 2: </label> <input type="text" id="receiver_line2" class="long  update" placeholder="Receiver Line 2"/>
@@ -95,50 +95,53 @@
 
 			<div class="floated float-label">
 				<label for="_weight">Weight: </label>
-					<input type="text"  id="weight" class="short box-param shipment" placeholder="Weight"/>
+					<input type="text"  id="weight" class="short box-param shipment shipment-mandatory" placeholder="Weight"/>
 			</div>
 					
 			<div class="floated float-label">
 				<label for="dim">Dimensions:</label> 
-					<input type="text" id="length" class="short box-param shipment" placeholder="Length"/>
-					× <input type="text"  id="width" class="short box-param shipment" placeholder="Width"/>
-					× <input type="text"  id="height" class="short box-param shipment" placeholder="Height"/>
+					<input type="text" id="length" class="short box-param shipment shipment-mandatory" placeholder="Length"/>
+					× <input type="text"  id="width" class="short box-param shipment shipment-mandatory" placeholder="Width"/>
+					× <input type="text"  id="height" class="short box-param shipment shipment-mandatory" placeholder="Height"/>
 			</div>
 		</div>
 		<div class="control_string float-label">
 			<h3>Shipment</h3>
 			<label for="shipment_id">Shipment ID:</label>
-			<input type="text" id="shipment_id"  class="longest rates update" placeholder="Shipment ID"/>
+			<input type="text" id="shipment_id"  class="longest rates update rates-mandatory" placeholder="Shipment ID"/>
 		</div>
 		<div class="control_string float-label">
 			<h3>Service</h3>
 				<div class="form_string">
-					<label for="carrier">Carrier: </label> <input type="text" id="carrier" class="longest shipment update" placeholder="Carrier"/>
+					<label for="carrier">Carrier: </label> <input type="text" id="carrier" class="longest shipment update update-mandatory" placeholder="Carrier"/>
 				</div>
 				<div class="form_string">
-					<label for="code">Code:</label> <input type="text" id="code" class="longest shipment update" placeholder="Code"/>
+					<label for="code">Code:</label> <input type="text" id="code" class="longest shipment update update-mandatory" placeholder="Code"/>
 				</div>
 		</div>
 		<div class="control_string float-label">
 			<h3>Order</h3>
 			<div class="form_string">
 				<label for="payment_card_id">Payment Card ID:</label>
-				<input type="text" id="payment_card_id"  class="longest order update" placeholder="Payment Card ID"/>
+				<input type="text" id="payment_card_id"  class="longest order " placeholder="Payment Card ID"/>
 			</div>
 			<div class="form_string">
 				<label for="order_id">Order ID:</label>
-				<input type="text" id="order_id"  class="longest order update" placeholder="Order ID"/>
+				<input type="text" id="order_id"  class="longest purchase purchase-mandatory" placeholder="Order ID"/>
 			</div>
 		</div>
 
 		<h3>Actions</h3>
-		<div class="control_string center">
+		<div class="control_string padding">
 			<input  class="action_chooser"  type="radio" id="create_shipment" name="action" value="create_shipment"><label for="create_shipment">Create shipment</label>
 			<input  class="action_chooser"  type="radio" id="get_rates" name="action" value="get_rates"><label for="get_rates">Get rates</label>
 			<input  class="action_chooser"  type="radio" id="update_shipment" name="action" value="update_shipment"><label for="update_shipment">Update shipment</label>
-			<input  class="action_chooser"  type="radio" id="validate_addresses" name="action" value="validate_addresses"><label for="validate_addresses">Validate addresses</label>
+			<input  class="action_chooser"  type="radio" id="validate_addresses" name="action" value="validate_addresses"><label for="validate_addresses">Validate addresses</label><br/>
+			<input  class="action_chooser"  type="radio" id="get_default_card" name="action" value="get_default_card"><label for="get_default_card">Get default card</label>
+			<input  class="action_chooser"  type="radio" id="get_cards" name="action" value="get_cards"><label for="get_cards">Get cards</label>
 			<input  class="action_chooser"  type="radio" id="create_order" name="action" value="create_order"><label for="create_order">Create order</label>
 			<input  class="action_chooser"  type="radio" id="purchase_order" name="action" value="purchase_order"><label for="purchase_order">Purchase</label>
+			<input  class="action_chooser"  type="radio" id="get_label" name="action" value="get_label"><label for="get_label">Get label</label>
 		</div>
 
 		
