@@ -77,22 +77,14 @@ $(document).ready ->
 						package_type: package_type
 
 					(data, textStatus, jqXHR) ->
-						#make_response()
-						if data.status == "error"
-							alert 'Ajax error'
-						else
-							return data
+						return data
 
 			when 'get_rates'
 				$.post '/smailex/get_rates',
 					shipment_id: $('#shipment_id').val()
 
 				(data, textStatus, jqXHR) ->
-					#make_response()
-					if data.status == "error"
-						alert 'Ajax error'
-					else
-						return data
+					return data
 			when 'update_shipment'
 				$.post '/smailex/update_shipment',
 					shipment_id: $('#shipment_id').val()
@@ -122,73 +114,44 @@ $(document).ready ->
 					carrier: $('#carrier').val()
 					code: $('#code').val()
 				(data, textStatus, jqXHR) ->
-					#make_response()
-					if data.status == "error"
-						alert 'Ajax error'
-					else
-						return data
+					return data
 			
 			when 'validate_addresses'
 				$.post '/smailex/validate_addresses',
 					shipment_id: $('#shipment_id').val()
 
 					(data, textStatus, jqXHR) ->
-						#make_response()
-						if data.status == "error"
-							alert 'Ajax error'
-						else
-							return data
+						return data
 			when 'create_order'
 				$.post '/smailex/create_order',
 					shipment_id: $('#shipment_id').val()
 					payment_card_id:  $('#payment_card_id').val()
 
 					(data, textStatus, jqXHR) ->
-						#make_response()
-						if data.status == "error"
-							alert 'Ajax error'
-						else
-							return data
+						return data
 			when 'get_cards'
 				$.post '/smailex/get_cards',
 
 					(data, textStatus, jqXHR) ->
-						#make_response()
-						if data.status == "error"
-							alert 'Ajax error'
-						else
-							return data
+						return data
 			when 'get_default_card'
 				$.post '/smailex/get_default_card',
 
 					(data, textStatus, jqXHR) ->
-						#make_response()
-						if data.status == "error"
-							alert 'Ajax error'
-						else
-							return data
+						return data
 
 			when 'purchase_order'
 				$.post '/smailex/purchase',
 					order_id: $('#order_id').val()
 
 					(data, textStatus, jqXHR) ->
-						#make_response()
-						if data.status == "error"
-							alert 'Ajax error'
-						else
-							return data
+						return data
 			when 'get_label'
 				$.post '/smailex/get_label',
 					order_id: $('#order_id').val()
-
+				
 					(data, textStatus, jqXHR) ->
-						#make_response()
-						if data.status == "error"
-							alert 'Ajax error'
-						else
-							return data
-			
+						return data
 			else
 				alert "Make a choice!"
 		make_response()

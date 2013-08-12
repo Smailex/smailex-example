@@ -31,7 +31,11 @@ class SmailexController < ApplicationController
       }
 
     #Ceate the shipment object and send request to smailex
-    shipment = client.create_shipment(params[:package_type], shipment_params)
+    begin
+      shipment = client.create_shipment(params[:package_type], shipment_params)
+    rescue Exception => e
+      shipment = {:error=> e}
+    end
 
     respond_to do |format|
     format.js { 	render :partial => 'response',  :locals=>{:response => shipment}	}
@@ -42,7 +46,11 @@ class SmailexController < ApplicationController
     client = SmailexClient.new(SmailexClientID, SmailexClientSecret, SmailexStageAPIUrl)
     
     # Get shipment rates by shipment_id from smailex
-    rates = client.get_rates(params[:shipment_id])
+    begin
+      rates = client.get_rates(params[:shipment_id])
+    rescue Exception => e
+      rates = {:error=> e}
+    end
 
     respond_to do |format|
       format.js {   render :partial => 'response',  :locals=>{:response => rates}  }
@@ -89,7 +97,11 @@ class SmailexController < ApplicationController
       }
 
   #update shipment
-  update_shipment = client.update_shipment(params[:shipment_id], update_params)
+    begin
+      update_shipment = client.update_shipment(params[:shipment_id], update_params)
+    rescue Exception => e
+      update_shipment = {:error=> e}
+    end
 
     respond_to do |format|
      format.js {   render :partial => 'response',  :locals=>{:response => update_shipment}  }
@@ -99,7 +111,11 @@ class SmailexController < ApplicationController
   def validate_addresses
      client = SmailexClient.new(SmailexClientID, SmailexClientSecret, SmailexStageAPIUrl)
      #validate addresses of shipment with gived ID
-     validate = client.validate_address(params[:shipment_id])
+    begin
+      validate = client.validate_address(params[:shipment_id])
+    rescue Exception => e
+      validate = {:error=> e}
+    end
 
     respond_to do |format|
       format.js {   render :partial => 'response',  :locals=>{:response => validate}  }
@@ -111,7 +127,11 @@ class SmailexController < ApplicationController
   def get_cards
     client = SmailexClient.new(SmailexClientID, SmailexClientSecret, SmailexStageAPIUrl)
     #get list of binded cards, user given in SmailexClient init
-    cards = client.get_cards()
+    begin
+      cards = client.get_cards()
+    rescue Exception => e
+      cards = {:error=> e}
+    end
     
     respond_to do |format|
       format.js {   render :partial => 'response',  :locals=>{:response => cards}}
@@ -121,7 +141,11 @@ class SmailexController < ApplicationController
   def get_default_card
     client = SmailexClient.new(SmailexClientID, SmailexClientSecret, SmailexStageAPIUrl)
     #get default binded card of a user given in SmailexClient init
-    default_card = client.get_default_card()
+    begin
+      default_card = client.get_default_card()
+    rescue Exception => e
+      default_card = {:error=> e}
+    end
     
     respond_to do |format|
       format.js {   render :partial => 'response',  :locals=>{:response => default_card}}
@@ -140,7 +164,11 @@ class SmailexController < ApplicationController
     end
 
     #create new order
-    order = client.create_order(order_params)
+    begin
+      order = client.create_order(order_params)
+    rescue Exception => e
+      order = {:error=> e}
+    end
 
     respond_to do |format|
       format.js {   render :partial => 'response',  :locals=>{:response => order}}
@@ -151,7 +179,11 @@ class SmailexController < ApplicationController
     client = SmailexClient.new(SmailexClientID, SmailexClientSecret, SmailexStageAPIUrl)
 
     #purchase order with given ID
-    purchase_order = client.purchase(params[:order_id])
+    begin
+      purchase_order = client.purchase(params[:order_id])
+    rescue Exception => e
+      purchase = {:error=> e}
+    end
 
     respond_to do |format|
       format.js {   render :partial => 'response',  :locals=>{:response => purchase_order}  }
@@ -162,11 +194,16 @@ class SmailexController < ApplicationController
     client = SmailexClient.new(SmailexClientID, SmailexClientSecret, SmailexStageAPIUrl)
 
     #purchase order with given ID
-    label = client.get_label(params[:order_id])
+    begin
+      label = client.get_label(params[:order_id])
+    rescue Exception => e
+      label = {:error=> e}
+    end
 
-    # respond_to do |format|
-    #   format.js {   render :partial => 'response',  :locals=>{:response => label}  }
-    # end
+    respond_to do |format|
+      format.js { render :partial => 'response',  :locals=>{:response => label}}
+    end
+
   end
 
 
