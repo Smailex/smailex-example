@@ -1,14 +1,17 @@
 root = exports ? this
 
-this.hide_all = ->
-	$('.loading').html("<img src='/assets/loading.gif'/>")
+hide_all = ->
+	console.log "HideAll called"
+	$('.loading').show()
 	$('#response').hide()
 
 this.make_response = ->
-	$('.loading').html("")
+	console.log "MakeResponce all called"
+	$('.loading').hide()
 	$('#response').show()
 
 $(document).ready ->
+
 
 	#package type
 	$('.package_type').click ->
@@ -55,7 +58,7 @@ $(document).ready ->
 
 
 	$('#send').click ->
-		$('.loading').html("<img src='/assets/loading.gif'/>")
+		hide_all()
 		act = $('input[name=action]:checked', '#request_fields').val()
 		switch act
 			when 'create_shipment'
@@ -71,10 +74,14 @@ $(document).ready ->
 						box_length: $('#length').val()
 						box_width: $('#width').val()
 						box_height: $('#height').val()
+						signature_type: $('#signature_type').val()
+						insurance_value: $('#insurance_value').val()
 					else
 						sender_zip: $('#sender_zip').val()
 						receiver_zip: $('#receiver_zip').val()
 						package_type: package_type
+						signature_type: $('#signature_type').val()
+						insurance_value: $('#insurance_value').val()
 
 					(data, textStatus, jqXHR) ->
 						return data
@@ -113,6 +120,8 @@ $(document).ready ->
 
 					carrier: $('#carrier').val()
 					code: $('#code').val()
+
+					insurance_value: $('#insurance_value').val()
 				(data, textStatus, jqXHR) ->
 					return data
 			
@@ -154,6 +163,5 @@ $(document).ready ->
 						return data
 			else
 				alert "Make a choice!"
-		make_response()
 		
 

@@ -7,8 +7,10 @@ class SmailexController < ApplicationController
     client = SmailexClient.new(SmailexClientID, SmailexClientSecret, SmailexStageAPIUrl)
 
     shipment_params = {
+      :signature_type=>params[:signature_type],
       :packages=>[
         {
+        :insurance_value => params[:insurance_value],
           :dimensions=>{
             :weight=>params[:box_weight],
             :length=>params[:box_length],
@@ -29,7 +31,7 @@ class SmailexController < ApplicationController
           }
         }
       }
-
+      p "PARAMS: #{shipment_params}"
     #Ceate the shipment object and send request to smailex
     begin
       shipment = client.create_shipment(params[:package_type], shipment_params)
@@ -62,38 +64,38 @@ class SmailexController < ApplicationController
     client = SmailexClient.new(SmailexClientID, SmailexClientSecret, SmailexStageAPIUrl)
 
     update_params = {
-        :sender=>{
-          :name => params[:sender_name],
-          :email => params[:sender_email],
-          :phone => params[:sender_phone],
-          :company => params[:sender_company],
-          :address=>{
-            :country=> params[:sender_country],
-            :state=>params[:sender_state],
-            :city=>params[:sender_city],
-            :line1=>params[:sender_line1],
-            :line2=>params[:sender_line2]
+          :sender=>{
+            :name => params[:sender_name],
+            :email => params[:sender_email],
+            :phone => params[:sender_phone],
+            :company => params[:sender_company],
+            :address=>{
+              :country=> params[:sender_country],
+              :state=>params[:sender_state],
+              :city=>params[:sender_city],
+              :line1=>params[:sender_line1],
+              :line2=>params[:sender_line2]
 
-          }
-        },
-        :receiver=>{
-          :name => params[:receiver_name],
-          :email => params[:receiver_email],
-          :phone => params[:receiver_phone],
-          :company => params[:receiver_company],
-          :address=>{
-            :country=> params[:receiver_country],
-            :state=>params[:receiver_state],
-            :city=>params[:receiver_city],
-            :line1=>params[:receiver_line1],
-            :line2=>params[:receiver_line2]
+            }
+          },
+          :receiver=>{
+            :name => params[:receiver_name],
+            :email => params[:receiver_email],
+            :phone => params[:receiver_phone],
+            :company => params[:receiver_company],
+            :address=>{
+              :country=> params[:receiver_country],
+              :state=>params[:receiver_state],
+              :city=>params[:receiver_city],
+              :line1=>params[:receiver_line1],
+              :line2=>params[:receiver_line2]
 
+            }
+          },
+          :service=>{
+            :code=>params[:code],
+            :carrier=>params[:carrier]
           }
-        },
-        :service=>{
-          :code=>params[:code],
-          :carrier=>params[:carrier]
-        }
       }
 
   #update shipment
@@ -182,7 +184,7 @@ class SmailexController < ApplicationController
     begin
       purchase_order = client.purchase(params[:order_id])
     rescue Exception => e
-      purchase = {:error=> e}
+      purchase_order = {:error=> e}
     end
 
     respond_to do |format|
@@ -193,15 +195,12 @@ class SmailexController < ApplicationController
     def get_label
     client = SmailexClient.new(SmailexClientID, SmailexClientSecret, SmailexStageAPIUrl)
 
-    #purchase order with given ID
-    begin
-      label = client.get_label(params[:order_id])
-    rescue Exception => e
-      label = {:error=> e}
-    end
+    #get shippming label for order with given ID
+    label = client.get_label(params[:order_id])
+    p "#{label}"
 
     respond_to do |format|
-      format.js { render :partial => 'response',  :locals=>{:response => label}}
+      format.js  { render :partial => 'label'}
     end
 
   end

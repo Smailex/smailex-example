@@ -88,6 +88,7 @@
 		<div style="clear:both"></div>
 
 		<div class="control_string">
+
 			<h3>Package</h3>
 			<label>Packaging type:</label>  
 				<input type="radio" class="package_type" name="packaging" value="envelope" id="envelope"/><label for="envelope">Envelope</label>  
@@ -104,19 +105,34 @@
 					× <input type="text"  id="width" class="short box-param shipment shipment-mandatory" placeholder="Width"/>
 					× <input type="text"  id="height" class="short box-param shipment shipment-mandatory" placeholder="Height"/>
 			</div>
+			<div class="form_string">
+				<label for="insurance_value" class="margin-label">Insurance value:</label>
+				<input type="text" id="insurance_value"  class="longest shipment  margin-input" placeholder="Insurance value"/>
+			</div>
+
 		</div>
+
 		<div class="control_string float-label">
 			<h3>Shipment</h3>
-			<label for="shipment_id">Shipment ID:</label>
-			<input type="text" id="shipment_id"  class="longest rates update rates-mandatory" placeholder="Shipment ID"/>
+			<div class="form_string">
+				<label for="shipment_id">Shipment ID:</label>
+				<input type="text" id="shipment_id"  class="longest rates update rates-mandatory" placeholder="Shipment ID"/>
+			</div>
+			
+			<div class="form_string">
+				<label for="signature_type">Signature type:</label>
+				<input type="text" id="signature_type"  class="longest shipment" placeholder="Signature type"/>
+			</div>
+
+
 		</div>
 		<div class="control_string float-label">
 			<h3>Service</h3>
 				<div class="form_string">
-					<label for="carrier">Carrier: </label> <input type="text" id="carrier" class="longest shipment update update-mandatory" placeholder="Carrier"/>
+					<label for="carrier">Carrier: </label> <input type="text" id="carrier" class="longest update update-mandatory" placeholder="Carrier"/>
 				</div>
 				<div class="form_string">
-					<label for="code">Code:</label> <input type="text" id="code" class="longest shipment update update-mandatory" placeholder="Code"/>
+					<label for="code">Code:</label> <input type="text" id="code" class="longest update update-mandatory" placeholder="Code"/>
 				</div>
 		</div>
 		<div class="control_string float-label">
@@ -151,7 +167,8 @@
 		<button id="send" class="action">SEND</button>
 	</div>
 	<h2 >Response:</h2>
-	<div class="loading">
+	<div class="loading" style="display:none;">
+		<%= image_tag('loading.gif') %>
 	</div>
 	<pre><code id="response" class="json"></code></pre>
 
