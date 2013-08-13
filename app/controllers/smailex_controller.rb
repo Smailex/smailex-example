@@ -199,11 +199,11 @@ class SmailexController < ApplicationController
     label = client.get_label(params[:order_id])
 
     begin
-      File.open("#{params[:order_id]}.pdf","wb"){|file| 
+      File.open("#{Rails.root}/#{params[:order_id]}.pdf","wb"){|file| 
         file.write label
       }
       label_name = params[:order_id]
-    rescue Exeption => e
+    rescue Exception => e
       label_name = e
     end
 
