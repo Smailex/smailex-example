@@ -10,6 +10,7 @@ SmailexExample::Application.routes.draw do
   post "smailex/purchase"
   post "smailex/get_label"
   get "smailex/label"
+  get "smailex/save_label"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
