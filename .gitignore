@@ -15,3 +15,5 @@
 /tmp
 # Ignore sublime files
 *.sublime-*
+# all *.pdf
+*.pdf
