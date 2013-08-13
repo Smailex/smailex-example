@@ -198,17 +198,22 @@ class SmailexController < ApplicationController
     #get shippming label for order with given ID
     label = client.get_label(params[:order_id])
 
-    File.open("#{params[:order_id]}.pdf","wb"){|file| 
-      file.write label
-    }
+    begin
+      File.open("#{params[:order_id]}.pdf","wb"){|file| 
+        file.write label
+      }
+      label_name = params[:order_id]
+    rescue Exeption => e
+      label_name = e
+    end
 
     respond_to do |format|
-      format.js  { render :partial => 'label', :locals => {:response => "#{params[:order_id]}.pdf"}}
+      format.js  { render :partial => 'label', :locals => {:response => label_name}}
     end
   end
 
   def save_label
-    send_data open("#{Rails.root}/#{params[:label]}", "rb") { |f| f.read }, :disposition => 'attachment', :filename => "label_for_#{params[:label]}"
+    send_data open("#{Rails.root}/#{params[:label]}.pdf", "rb") { |f| f.read }, :disposition => 'attachment', :filename => "label_for_#{params[:label]}.pdf"
 
   end
 
