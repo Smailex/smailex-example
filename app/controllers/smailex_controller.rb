@@ -31,7 +31,6 @@ class SmailexController < ApplicationController
           }
         }
       }
-      p "PARAMS: #{shipment_params}"
     #Ceate the shipment object and send request to smailex
     begin
       shipment = client.create_shipment(params[:package_type], shipment_params)
@@ -122,7 +121,6 @@ class SmailexController < ApplicationController
     respond_to do |format|
       format.js {   render :partial => 'response',  :locals=>{:response => validate}  }
     end
-    
   end
 
 
@@ -198,6 +196,10 @@ class SmailexController < ApplicationController
     #get shippming label for order with given ID
     label = client.get_label(params[:order_id])
 
+    #save it and return link to in for donwload
+    #You could you SmailexClient.save_label(order_id, [path_to_save_label]) instead
+    # if You don't pass optional agr [path_to_save_label], label will be saved in /tmp/*.pdf
+    # otherwise path toy provided will be used
     begin
       File.open("#{Rails.root}/#{params[:order_id]}.pdf","wb"){|file| 
         file.write label
@@ -213,9 +215,7 @@ class SmailexController < ApplicationController
   end
 
   def save_label
+    #Send saved label as attachment
     send_data open("#{Rails.root}/#{params[:label]}.pdf", "rb") { |f| f.read }, :disposition => 'attachment', :filename => "label_for_#{params[:label]}.pdf"
-
   end
-
-
 end
