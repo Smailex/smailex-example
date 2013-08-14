@@ -6,10 +6,7 @@ class SmailexController < ApplicationController
   def create_shipment
     client = SmailexClient.new(SmailexClientID, SmailexClientSecret, SmailexStageAPIUrl)
 
-    # p "PARAMS: #{params}"
-
     boxes = JSON.parse(params[:boxes],{:symbolize_names => true})
-    # p "B: #{boxes}"
 
     shipment_params = {
       :signature_type=>params[:signature_type],
@@ -28,7 +25,7 @@ class SmailexController < ApplicationController
 
     #Ceate the shipment object and send request to smailex
     begin
-      shipment = client.create_shipment(params[:package_type], shipment_params)
+     shipment = client.create_shipment(params[:package_type], shipment_params)
     rescue Exception => e
       shipment = {:error=> e}
     end
