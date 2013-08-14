@@ -36,7 +36,6 @@ class SmailexController < ApplicationController
   end
 
   def get_rates
-    p "PARAMS: #{params}"
     client = SmailexClient.new(SmailexClientID, SmailexClientSecret, SmailexStageAPIUrl)
     
     # Get shipment rates by shipment_id from smailex
