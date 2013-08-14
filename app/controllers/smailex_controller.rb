@@ -6,20 +6,14 @@ class SmailexController < ApplicationController
   def create_shipment
     client = SmailexClient.new(SmailexClientID, SmailexClientSecret, SmailexStageAPIUrl)
 
+    # p "PARAMS: #{params}"
+
+    boxes = JSON.parse(params[:boxes],{:symbolize_names => true})
+    # p "B: #{boxes}"
+
     shipment_params = {
       :signature_type=>params[:signature_type],
-      :packages=>[
-        {
-        :insurance_value => params[:insurance_value],
-          :dimensions=>{
-            :weight=>params[:box_weight],
-            :length=>params[:box_length],
-            :width=>params[:box_width],
-            :height=>params[:box_height],
-            :units=>"imperial"
-          }
-        }
-      ],
+      :packages=>boxes,
         :sender=>{
           :address=>{
            :zip=>params[:sender_zip]
@@ -31,19 +25,21 @@ class SmailexController < ApplicationController
           }
         }
       }
+
     #Ceate the shipment object and send request to smailex
     begin
       shipment = client.create_shipment(params[:package_type], shipment_params)
     rescue Exception => e
       shipment = {:error=> e}
     end
-
+    # shipment = {:a=>"b"}
     respond_to do |format|
-    format.js { 	render :partial => 'response',  :locals=>{:response => shipment}	}
+      format.js { 	render :partial => 'response',  :locals=>{:response => shipment}	}
     end
   end
 
   def get_rates
+    p "PARAMS: #{params}"
     client = SmailexClient.new(SmailexClientID, SmailexClientSecret, SmailexStageAPIUrl)
     
     # Get shipment rates by shipment_id from smailex

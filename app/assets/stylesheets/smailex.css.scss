@@ -127,3 +127,27 @@ button.action:hover,button.action:active{
 	width: 100%;
 	text-align: center;
 }
+.single_package{
+	background: rgba(150,150,150,0.2);
+	padding-bottom: 6px;
+	border-radius: 5px;
+}
+
+#add_package{
+	border-bottom: dotted 1px #428bca;
+	color: #428bca;
+	margin-left: 160px;
+	cursor: pointer;
+	padding-top: 10px;
+	display: inline-block;
+}
+.remove_package{
+	margin-left: 932px;
+	position: relative;
+	top: -33px;
+	background: url("/assets/remove.png") no-repeat;
+	width: 20px;
+	display: inline-block;
+	height: 20px;
+	cursor: pointer;
+}

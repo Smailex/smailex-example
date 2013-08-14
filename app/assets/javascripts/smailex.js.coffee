@@ -1,17 +1,27 @@
 root = exports ? this
 
 hide_all = ->
-	console.log "HideAll called"
 	$('.loading').show()
 	$('#response').hide()
 
 this.make_response = ->
-	console.log "MakeResponce all called"
 	$('.loading').hide()
 	$('#response').show()
 
+this.remove_package = (e) ->
+	parent_id = $(this).parent().attr('id')
+	$('#'+parent_id).remove()
+
+
 $(document).ready ->
 
+	$('body').on 'click', 'hand', remove_package
+
+	_id=1
+	$('#add_package').click ->
+		single_package = $('.single_package').html()
+		_id = _id+1
+		$(this).before("<div class='single_package' id='"+_id+"'>" + single_package+ "<hand class='remove_package' title='Remove this package'></hand></div>") 
 
 	#package type
 	$('.package_type').click ->
@@ -67,21 +77,53 @@ $(document).ready ->
 				$.post '/smailex/create_shipment',
 
 					if package_type == "box"
+						_packages = new Array()
+						boxes =""
+						$.each $('.single_package'),  (i) ->
+							pack_weight = $(this).find('.weight').val()
+							pack_length = $(this).find('.length').val()
+							pack_width = $(this).find('.width').val()
+							pack_height = $(this).find('.height').val()
+							pack_insurance_value = $(this).find('.insurance_value').val()
+
+							_package = new Object()
+							_package.insurance_value = pack_insurance_value
+							_package.dimensions = new Object()
+							_package.dimensions.weight = pack_weight
+							_package.dimensions.length = pack_length
+							_package.dimensions.width = pack_weight
+							_package.dimensions.height = pack_height
+							_package.dimensions.units = "imperial"
+
+							_packages.push _package
+							boxes = JSON.stringify(_packages)
+							console.log boxes
+							#return false
+
+						boxes: boxes
 						sender_zip: $('#sender_zip').val()
 						receiver_zip: $('#receiver_zip').val()
 						package_type: package_type
-						box_weight: $('#weight').val()
-						box_length: $('#length').val()
-						box_width: $('#width').val()
-						box_height: $('#height').val()
 						signature_type: $('#signature_type').val()
-						insurance_value: $('#insurance_value').val()
 					else
+						_packages = new Array()
+						boxes =""
+						$.each $('.single_package'),  (i) ->
+							pack_insurance_value = $(this).find('.insurance_value').val()
+
+							_package = new Object()
+							_package.insurance_value = pack_insurance_value
+
+							_packages.push _package
+							boxes = JSON.stringify(_packages)
+							console.log boxes
+							#return false
+
 						sender_zip: $('#sender_zip').val()
 						receiver_zip: $('#receiver_zip').val()
 						package_type: package_type
 						signature_type: $('#signature_type').val()
-						insurance_value: $('#insurance_value').val()
+						boxes: boxes
 
 					(data, textStatus, jqXHR) ->
 						make_response()

@@ -89,26 +89,28 @@
 
 		<div class="control_string">
 
-			<h3>Package</h3>
+			<h3>Packages</h3>
 			<label>Packaging type:</label>  
 				<input type="radio" class="package_type" name="packaging" value="envelope" id="envelope"/><label for="envelope">Envelope</label>  
 				<input type="radio" class="package_type" name="packaging" value="box" id="box" checked/><label for="box">Box</label><br/>
-
-			<div class="floated float-label">
-				<label for="_weight">Weight: </label>
-					<input type="text"  id="weight" class="short box-param shipment shipment-mandatory" placeholder="Weight"/>
+			<div class="single_package" id="1">
+				<div class="floated float-label">
+					<label for="_weight">Weight: </label>
+						<input type="text"  class="short box-param shipment shipment-mandatory weight" placeholder="Weight"/>
+				</div>
+						
+				<div class="floated float-label">
+					<label for="dim">Dimensions:</label> 
+						<input type="text" class="short box-param shipment shipment-mandatory length" placeholder="Length"/>
+						× <input type="text"  class="short box-param shipment shipment-mandatory width" placeholder="Width"/>
+						× <input type="text"  class="short box-param shipment shipment-mandatory height" placeholder="Height"/>
+				</div>
+				<div class="form_string">
+					<label for="insurance_value" class="margin-label">Insurance value:</label>
+					<input type="text" class="longest shipment  margin-input insurance_value" placeholder="Insurance value"/>
+				</div>
 			</div>
-					
-			<div class="floated float-label">
-				<label for="dim">Dimensions:</label> 
-					<input type="text" id="length" class="short box-param shipment shipment-mandatory" placeholder="Length"/>
-					× <input type="text"  id="width" class="short box-param shipment shipment-mandatory" placeholder="Width"/>
-					× <input type="text"  id="height" class="short box-param shipment shipment-mandatory" placeholder="Height"/>
-			</div>
-			<div class="form_string">
-				<label for="insurance_value" class="margin-label">Insurance value:</label>
-				<input type="text" id="insurance_value"  class="longest shipment  margin-input" placeholder="Insurance value"/>
-			</div>
+			<div id="add_package">Add package</div>
 
 		</div>
 
