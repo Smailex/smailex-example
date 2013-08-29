@@ -53,34 +53,34 @@
 			<h4>Receiver</h4>
 			<div class="control_string float-label">
 				<div class="form_string">
-					<label for="receiver_name">Receiver name: </label> <input type="text" id="receiver_name" class="long update update-mandatory" placeholder="Receiver name"/>
+					<label for="receiver_name">Receiver name: </label> <input type="text" id="receiver_name" class="long update update-mandatory party party-mandatory" placeholder="Receiver name"/>
 				</div>
 				<div class="form_string">
 					<label for="receiver_email">Receiver email: </label> <input type="text" id="receiver_email" class="long update update-mandatory" placeholder="Receiver email"/>
 				</div>
 				<div class="form_string">
-					<label for="receiver_phone">Receiver phone: </label> <input type="text" id="receiver_phone" class="long update update-mandatory"  placeholder="Receiver phone"/>
+					<label for="receiver_phone">Receiver phone: </label> <input type="text" id="receiver_phone" class="long update update-mandatory party party-mandatory"  placeholder="Receiver phone"/>
 				</div>
 				<div class="form_string">
-					<label for="receiver_company">Receiver company: </label> <input type="text" id="receiver_company" class="long update "   placeholder="Receiver company"/>
+					<label for="receiver_company">Receiver company: </label> <input type="text" id="receiver_company" class="long update party"   placeholder="Receiver company"/>
 				</div>
 				<div class="form_string">
-					<label for="receiver_zip">Receiver ZIP: </label> <input type="text" id="receiver_zip" class="long shipment shipment-mandatory" value="77060"  placeholder="Receiver ZIP"/>
+					<label for="receiver_zip">Receiver ZIP: </label> <input type="text" id="receiver_zip" class="long shipment shipment-mandatory party party-mandatory" value="77060"  placeholder="Receiver ZIP"/>
 				</div>
 				<div class="form_string">
 					<label for="receiver_country">Receiver county: </label> <input type="text" id="receiver_country" class="long " disabled value="US" placeholder="Receiver Country"/>
 				</div>
 				<div class="form_string">
-					<label for="receiver_state">Receiver state: </label> <input type="text" id="receiver_state" class="long  update update-mandatory" placeholder="Receiver State"/>
+					<label for="receiver_state">Receiver state: </label> <input type="text" id="receiver_state" class="long  update update-mandatory party party-mandatory" placeholder="Receiver State"/>
 				</div>
 				<div class="form_string">
-					<label for="receiver_city">Receiver city: </label> <input type="text" id="receiver_city" class="long  update update-mandatory" placeholder="Receiver City"/>
+					<label for="receiver_city">Receiver city: </label> <input type="text" id="receiver_city" class="long  update update-mandatory party party-mandatory" placeholder="Receiver City"/>
 				</div>
 				<div class="form_string">
-					<label for="receiver_line1">Receiver address line 1: </label> <input type="text" id="receiver_line1" class="long  update update-mandatory" placeholder="Receiver Line 1"/>
+					<label for="receiver_line1">Receiver address line 1: </label> <input type="text" id="receiver_line1" class="long  update update-mandatory party party-mandatory" placeholder="Receiver Line 1"/>
 				</div>				
 				<div class="form_string">
-					<label for="receiver_line2">Receiver address line 2: </label> <input type="text" id="receiver_line2" class="long  update" placeholder="Receiver Line 2"/>
+					<label for="receiver_line2">Receiver address line 2: </label> <input type="text" id="receiver_line2" class="long  update party" placeholder="Receiver Line 2"/>
 				</div>				
 			</div>
 		</div>
@@ -131,7 +131,7 @@
 		<div class="control_string float-label">
 			<h3>Service</h3>
 				<div class="form_string">
-					<label for="carrier">Carrier: </label> <input type="text" id="carrier" class="longest update update-mandatory" placeholder="Carrier"/>
+					<label for="carrier">Carrier: </label> <input type="text" id="carrier" class="longest update update-mandatory party party party-mandatory" placeholder="Carrier"/>
 				</div>
 				<div class="form_string">
 					<label for="code">Code:</label> <input type="text" id="code" class="longest update update-mandatory" placeholder="Code"/>
@@ -154,7 +154,8 @@
 			<input  class="action_chooser"  type="radio" id="create_shipment" name="action" value="create_shipment"><label for="create_shipment">Create shipment</label>
 			<input  class="action_chooser"  type="radio" id="get_rates" name="action" value="get_rates"><label for="get_rates">Get rates</label>
 			<input  class="action_chooser"  type="radio" id="update_shipment" name="action" value="update_shipment"><label for="update_shipment">Update shipment</label>
-			<input  class="action_chooser"  type="radio" id="validate_addresses" name="action" value="validate_addresses"><label for="validate_addresses">Validate addresses</label><br/>
+			<input  class="action_chooser"  type="radio" id="validate_addresses" name="action" value="validate_addresses"><label for="validate_addresses">Validate addresses</label>
+			<input  class="action_chooser"  type="radio" id="validate_party" name="action" value="validate_party"><label for="validate_party">Validate party</label><br/>
 			<input  class="action_chooser"  type="radio" id="get_default_card" name="action" value="get_default_card"><label for="get_default_card">Get default card</label>
 			<input  class="action_chooser"  type="radio" id="get_cards" name="action" value="get_cards"><label for="get_cards">Get cards</label>
 			<input  class="action_chooser"  type="radio" id="create_order" name="action" value="create_order"><label for="create_order">Create order</label>

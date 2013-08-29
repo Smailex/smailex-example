@@ -115,6 +115,40 @@ class SmailexController < ApplicationController
     end
   end
 
+  def validate_party
+    client = SmailexClient.new(SmailexClientID, SmailexClientSecret, SmailexStageAPIUrl)
+    validation = {
+      :party=> {
+        :name=>params[:party_name],
+        :company=> params[:party_company],
+        :phone=>params[:party_phone],
+        :address=> {
+          :zip=> params[:party_zip] ,
+          :country=> params[:party_country] ,
+          :state=>params[:party_state],
+          :city=> params[:"party_city"],
+          :line1=> params[:party_line1],
+          :line2=>params[:party_line2]
+       }
+    },
+        :service=> {
+        :carrier=>params[:carrier]
+      }
+    }
+    p "V: #{validation}"
+    
+     #validate addresses of shipment with gived ID
+    begin
+      validate = client.validate_party(validation, true)
+    rescue Exception => e
+      validate = {:error=> e}
+    end
+
+    respond_to do |format|
+      format.js {   render :partial => 'response',  :locals=>{:response => validate}  }
+    end
+  end
+
 
   def get_cards
     client = SmailexClient.new(SmailexClientID, SmailexClientSecret, SmailexStageAPIUrl)

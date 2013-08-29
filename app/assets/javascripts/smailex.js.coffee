@@ -55,6 +55,9 @@ $(document).ready ->
 			when 'validate_addresses' 
 				$('.rates').prop 'disabled', false
 				$('.rates-mandatory').css 'border', 'solid 1px #d9534f'
+			when 'validate_party'
+				$('.party').prop 'disabled', false
+				$('.party-mandatory').css 'border', 'solid 1px #d9534f'
 			when 'create_order'
 				$('.rates').prop 'disabled', false
 				$('.order').prop 'disabled', false
@@ -169,6 +172,24 @@ $(document).ready ->
 			when 'validate_addresses'
 				$.post '/smailex/validate_addresses',
 					shipment_id: $('#shipment_id').val()
+
+					(data, textStatus, jqXHR) ->
+						make_response()
+						return data
+			when 'validate_party'
+				$.post '/smailex/validate_party',
+					party_name: $('#receiver_name').val()
+					party_email: $('#receiver_email').val()
+					party_phone: $('#receiver_phone').val()
+					party_company: $('#receiver_company').val()
+					party_zip: $('#receiver_zip').val()
+					party_country: $('#receiver_country').val()
+					party_state: $('#receiver_state').val()
+					party_city: $('#receiver_city').val()
+					party_line1: $('#receiver_line1').val()
+					party_line2: $('#receiver_line2').val()
+
+					carrier: $('#carrier').val()
 
 					(data, textStatus, jqXHR) ->
 						make_response()

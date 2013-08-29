@@ -9,6 +9,7 @@ SmailexExample::Application.routes.draw do
   post "smailex/get_default_card"
   post "smailex/purchase"
   post "smailex/get_label"
+  post "smailex/validate_party"
   get "smailex/label"
   get "smailex/save_label"
 

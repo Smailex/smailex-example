@@ -1,6 +1,5 @@
-GIT
-  remote: git@github.com:Smailex/ruby-sdk.git
-  revision: 5fc80578c2c69eccdde33d013dd1f2503a07d64e
+PATH
+  remote: /home/drove/workspace/git/ruby-sdk
   specs:
     smailex (0.0.1)
 
