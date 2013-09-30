@@ -36,8 +36,9 @@ SmailexExample::Application.configure do
   config.assets.debug = true
 
   #Smailex credentials and API url
-  SmailexClientID = "user@example.com"
-  SmailexClientSecret = "password"
+  SmailexClientID = "a6f45bd98f44a3eec82caea16faf3c62dd039b529a56559cf225dc9854bd9cef"
+  SmailexClientSecret = "e61bbb23e5355c3d677422caf8175f09a96c0d685116bed3a9b35d9130b5f41c"
   SmailexStageAPIUrl = "https://localhost:3000/api/v1"
-  SmailexLiveAPIUrl = "https://smailex.com/api/v1"
+  SmailexUsername = "user@example.com"
+  SmailexPassword = "password"
 end
