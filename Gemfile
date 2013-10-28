@@ -27,8 +27,8 @@ gem 'jquery-rails'
 # end
 
 # TODO: Do not forget to switch to git repo
-gem 'smailex', :git => 'git@github.com:Smailex/ruby-sdk.git'
-# gem 'smailex', :path => '/home/drove/workspace/git/ruby-sdk/'
+# gem 'smailex', :git => 'git@github.com:Smailex/ruby-sdk.git'
+gem 'smailex', :path => '/home/drove/workspace/git/ruby-sdk/'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
